@@ -3,6 +3,8 @@ import {Navigation} from 'react-native-navigation';
 import HomeScreen from './src/screens/maps/HomeScreen';
 import SideMenu from './src/screens/sidemenu/SideMenu';
 import {LogBox} from 'react-native';
+import NewsScreen from './src/screens/maps/NewsScreen';
+import ExampleScreen from './src/screens/maps/ExampleScreen';
 
 LogBox.ignoreAllLogs();
 
@@ -16,6 +18,18 @@ Navigation.registerComponent(
   'sidemenu',
   () => gestureHandlerRootHOC(SideMenu),
   () => SideMenu,
+);
+
+Navigation.registerComponent(
+  'news',
+  () => gestureHandlerRootHOC(NewsScreen),
+  () => NewsScreen,
+);
+
+Navigation.registerComponent(
+  'example',
+  () => gestureHandlerRootHOC(ExampleScreen),
+  () => ExampleScreen,
 );
 
 Navigation.events().registerAppLaunchedListener(() => {
@@ -46,7 +60,7 @@ Navigation.events().registerAppLaunchedListener(() => {
               {
                 component: {
                   id: 'App',
-                  name: 'home',
+                  name: 'example',
                 },
               },
             ],
